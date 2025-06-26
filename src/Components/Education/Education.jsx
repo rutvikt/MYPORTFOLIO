@@ -1,58 +1,64 @@
 import React from 'react';
-import { FaGraduationCap, FaSchool, FaArrowUp } from 'react-icons/fa';
+import { FaGraduationCap, FaSchool } from 'react-icons/fa';
 import './Education.scss';
 
 const Education = () => {
   const educationData = [
     {
       id: 1,
-      degree: "Bachelor of Computer Application",
       institution: "Parul University, Vadodara",
-      grade: "Grade: 7.86",
+      degree: "Bachelor of Computer Application",
       period: "Jul 2022 - Apr 2025",
-      icon: <FaGraduationCap className="education-icon" />,
+      grade: "7.86 GPA",
+      icon: <FaGraduationCap />,
     },
     {
       id: 2,
-      degree: "Higher Secondary School",
       institution: "Shree VidhyAarambh School, Rajkot",
-      grade: "12th Grade",
+      degree: "Higher Secondary (12th Grade)",
       period: "Jul 2020 - May 2022",
-      icon: <FaSchool className="education-icon" />,
+      grade: "85%",
+      icon: <FaSchool />,
     },
     {
       id: 3,
-      degree: "Secondary School",
       institution: "Shree VidhyAarambh School, Rajkot",
-      grade: "10th Grade",
+      degree: "Secondary School (10th Grade)",
       period: "Jul 2018 - May 2020",
-      icon: <FaSchool className="education-icon" />,
+      grade: "90%",
+      icon: <FaSchool />,
     }
   ];
 
   return (
     <section id="education" className="education-section">
-      <h2 className="section-title">Education</h2>
-      <div className="education-container">
-        {educationData.map((edu, index) => (
-          <div 
-            key={edu.id} 
-            className="education-card"
-            data-aos="fade-up"
-            data-aos-delay={index * 150}
-          >
-            <div className="card-content">
+      <div className="container">
+        <h2 className="section-title" data-aos="fade-down">Education</h2>
+        
+        <div className="education-cards">
+          {educationData.map((edu, index) => (
+            <div 
+              key={edu.id} 
+              className="education-card"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
               <div className="card-icon">{edu.icon}</div>
-              <h3 className="education-degree">{edu.degree}</h3>
-              <h4 className="education-institution">{edu.institution}</h4>
-              <p className="education-grade">{edu.grade}</p>
-              <p className="education-period">{edu.period}</p>
+              
+              <div className="card-main">
+                <div className="card-left">
+                  <h3 className="institution">{edu.institution}</h3>
+                  <p className="degree">{edu.degree}</p>
+                  <p className="period">{edu.period}</p>
+                </div>
+                
+                <div className="card-right">
+                  <span className="grade">{edu.grade}</span>
+                </div>
+              </div>
             </div>
-            <div className="card-arrow">
-              <FaArrowUp className="arrow-icon" />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
