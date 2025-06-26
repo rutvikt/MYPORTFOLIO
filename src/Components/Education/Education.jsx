@@ -43,18 +43,15 @@ const Education = () => {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="card-icon">{edu.icon}</div>
+              <div className="card-header">
+                <div className="card-icon">{edu.icon}</div>
+                <h3 className="institution">{edu.institution}</h3>
+                <span className="grade">{edu.grade}</span>
+              </div>
               
-              <div className="card-main">
-                <div className="card-left">
-                  <h3 className="institution">{edu.institution}</h3>
-                  <p className="degree">{edu.degree}</p>
-                  <p className="period">{edu.period}</p>
-                </div>
-                
-                <div className="card-right">
-                  <span className="grade">{edu.grade}</span>
-                </div>
+              <div className="card-details">
+                <p className="degree">{edu.degree}</p>
+                <p className="period">{edu.period}</p>
               </div>
             </div>
           ))}
